@@ -1,0 +1,52 @@
+package com.naver.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+@RequestMapping(value="/member")
+public class MemberController {
+	
+	@RequestMapping(value="insert", method = RequestMethod.GET)
+	public String insertui() {
+		return null;
+	}
+	
+	@RequestMapping(value="insert", method = RequestMethod.POST)
+	public String insert() {
+		return null;
+	}
+	
+	@RequestMapping(value="list", method = RequestMethod.GET)
+	public List<MemberDTO> list() {
+		
+	}
+	
+	@RequestMapping(value="read", method = RequestMethod.GET)
+	public MemberDTO read() {
+		
+	}
+	
+	@RequestMapping(value="update", method = RequestMethod.POST) 
+	public String update() {
+		return null;
+	}
+	
+	@RequestMapping(value="update")
+	public String updateui() {
+		return null;
+	}
+	
+	@RequestMapping(value="delete", method = RequestMethod.GET)
+	public void delete() {
+		
+	}
+}
+
+@RequestMapping(value="/board")
+class BoardController {
+	
+}

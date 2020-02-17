@@ -1,0 +1,21 @@
+package com.naver.hi;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.naver.repository.MemberDAO;
+
+@RunWith(SpringJUnit4ClassRunner)
+public class MemberDAOTest {
+	
+	@Autowired
+	private MemberDAO mdao;
+	
+	@Test
+	public void testGetTime() {
+		System.out.println(mdao.getTime());
+	}
+	
+
+}

@@ -1,0 +1,22 @@
+package com.naver.c601;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.naver.repository.MemberDAO;
+
+public class MemberDAOTest {
+	
+	@Autowired
+	private MemberDAO mdao;
+	
+	@Test
+	public void testGetTime() {
+		System.out.println(mdao.getTime());
+	}
+	
+
+}

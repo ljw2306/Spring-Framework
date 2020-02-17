@@ -1,0 +1,10 @@
+package com.naver.c601;
+
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+
+@RunWith()
+@ContextConfiguration(locations = {"file="})
+public class MybatisTest {
+	
+}

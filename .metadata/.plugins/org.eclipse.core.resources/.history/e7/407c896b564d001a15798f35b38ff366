@@ -1,0 +1,12 @@
+package com.naver.c601;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class InsertUIController {
+	
+	@RequestMapping(value = "/insertui", method = RequestMethod.GET)
+		
+	}
+	
+}

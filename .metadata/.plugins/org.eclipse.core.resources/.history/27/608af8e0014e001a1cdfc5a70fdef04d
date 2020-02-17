@@ -1,0 +1,37 @@
+package kr.co.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class TestController {
+	
+	@RequestMapping(value="test4")
+	public String test4(String id, int age, String name) {
+		System.out.println(id);
+		System.out.println(age);
+		System.out.println(name);
+		
+		return "test4";
+	}
+	
+	@RequestMapping(value="test3")
+	public void test3(String id) {
+		System.out.println(id);
+	}
+	
+	@RequestMapping(value = "/test2")
+	public void test2(Model model) {
+		model.addAttribute("name", "kim");
+		model.addAttribute("age", 11);
+		
+	}
+	
+	
+	@RequestMapping(value = "/test1")
+	public void test1() {
+		System.out.println("test1..................");
+	}
+	
+}

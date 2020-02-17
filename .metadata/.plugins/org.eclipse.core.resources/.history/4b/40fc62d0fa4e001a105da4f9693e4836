@@ -1,0 +1,18 @@
+package com.naver.hi;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.naver.dto.MemberDTO;
+
+@Controller
+public class MemberController {
+	
+	@RequestMapping(value="list")
+	public List<MemberDTO> list() {
+		
+	}
+	
+}

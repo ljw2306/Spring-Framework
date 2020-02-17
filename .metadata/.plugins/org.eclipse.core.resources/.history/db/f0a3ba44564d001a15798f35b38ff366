@@ -1,0 +1,11 @@
+package com.naver.c601;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class InsertUIController {
+	private String name;
+	private int age;
+	
+	
+}

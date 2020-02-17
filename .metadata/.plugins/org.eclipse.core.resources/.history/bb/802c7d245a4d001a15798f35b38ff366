@@ -1,0 +1,12 @@
+package com.naver.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping(value="/member")
+public class MemberController {
+	
+	@RequestMapping(value="/insert")
+	public void insert() {
+		
+	}
+}

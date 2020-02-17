@@ -1,0 +1,21 @@
+package com.naver.service;
+
+import java.util.List;
+
+import com.naver.dto.MemberDTO;
+
+public class MemberServiceImpl implements MemberService {
+	@Override
+	public List<MemberDTO> getList() {
+		
+		return null;
+	}
+	
+	@Override
+	public void getTime() {
+		
+		
+	}
+	
+	
+}

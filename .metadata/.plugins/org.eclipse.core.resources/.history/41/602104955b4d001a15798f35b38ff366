@@ -1,0 +1,39 @@
+package com.naver.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping(value="/member")
+public class MemberController {
+	
+	@RequestMapping(value="/insert")
+	public void insert() {
+		
+	}
+	
+	@RequestMapping(value="/list")
+	public List<MemberDTO> list() {
+		
+	}
+	
+	@RequestMapping(value="/read")
+	public MemberDTO read() {
+		
+	}
+	
+	@RequestMapping(value="/update")
+	public void update() {
+		
+	}
+	
+	@RequestMapping(value="/delete")
+	public void delete() {
+		
+	}
+}
+
+@RequestMapping(value="/board")
+class BoardController {
+	
+}

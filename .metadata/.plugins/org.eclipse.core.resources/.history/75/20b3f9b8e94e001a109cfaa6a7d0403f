@@ -1,0 +1,13 @@
+package com.naver.persistence;
+
+public class MemberDAOImpl implements MemberDAO {
+	
+	
+	@Override
+	public String getTime() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+}
