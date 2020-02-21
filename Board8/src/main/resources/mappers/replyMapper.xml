@@ -3,10 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.naver.reply">
+	
+	<update id="update">
+		update reply set replytext=#{replytext}, updatedate=sysdate where rno = #{rno}
+	</update>
+	
+	<delete id="delete">
+		delete from reply where rno = #{rno}
+	</delete>
+	
+	<select id="list" resultType="com.naver.dto.ReplyVO">
+		select * from reply where BNO = #{BNO} order by rno desc
+	</select>
+	
 	<insert id="insert">
 		<![CDATA[
 		insert into reply (rno, bno, replytext, replyer) values ((select NVL2(max(rno), max(rno)+1, 1) from reply), #{bno}, #{replytext}, #{replyer})
 		]]>
 	</insert>
-	
+
+
 </mapper>

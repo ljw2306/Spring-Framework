@@ -1,5 +1,7 @@
 package com.naver.repository;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,6 +20,22 @@ public class ReplyDAOImpl implements ReplyDAO {
 	@Override
 	public void insert(ReplyVO vo) {
 		session.insert(NS+".insert", vo);
+	}
+	
+	@Override
+	public List<ReplyVO> list(Integer bno) {
+		
+		return session.selectList(NS+".list", bno);
+	}
+	
+	@Override
+	public void delete(int rno) {
+		session.delete(NS+".delete", rno);
+	}
+	
+	@Override
+	public void update(ReplyVO vo) {
+		session.update(NS+".update", vo);
 	}
 
 }

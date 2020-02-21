@@ -18,18 +18,6 @@ import com.naver.dto.BoardVO;
 @RequestMapping("test")
 public class TestAjaxController {
 	
-	@RequestMapping(value="test4", method=RequestMethod.POST)
-	public void test4(@RequestParam Map<String, Object> map) {
-		String jsonStr = map.get("mList").toString();
-		ObjectMapper mapper = new ObjectMapper();
-		List<Map<String, Object>> list = mapper.readValue(jsonStr, new TypeReference<ArrayList<Map<String, Object>>>(){}); throw Exception, IOException
-		
-	}
-	
-	@RequestMapping(value="test4", method=RequestMethod.GET)
-	public void test4() {
-		
-	}
 	
 	@RequestMapping(value="test3", method = RequestMethod.POST)
 	public BoardVO test3(BoardVO vo) {
