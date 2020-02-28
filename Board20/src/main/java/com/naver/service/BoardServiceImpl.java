@@ -33,7 +33,6 @@ public class BoardServiceImpl implements BoardService{
 		
 		String[] arr = vo.getFilename();
 		
-		
 		if(arr != null) {
 			for(String filename : arr) {
 				bdao.addAttach(filename, vo.getBno());
@@ -57,12 +56,33 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Override
 	public BoardVO updateui(int bno) {
-		return bdao.updateui(bno);
+		
+		BoardVO vo = bdao.updateui(bno);
+		
+		List<String> list = bdao.getAttach(bno);
+		
+		String[] filename = list.toArray(new String[list.size()]);
+		for (int i = 0; i < filename.length; i++) {
+			System.out.println(filename[i]);
+		}
+		
+		vo.setFilename(filename);
+		
+		return vo;
 	}
 	
 	@Override
 	public void update(BoardVO vo) {
 		bdao.update(vo);
+		bdao.deleteAllFile(vo.getBno());
+		
+		String[] arr = vo.getFilename();
+		
+		if(arr != null) {
+			for(String filename : arr) {
+				bdao.addAttach(filename, vo.getBno());
+			}
+		}
 	}
 	
 	@Override
@@ -78,5 +98,10 @@ public class BoardServiceImpl implements BoardService{
 	public void delete(int bno) {
 		rdao.deleteByBno(bno);
 		bdao.delete(bno);
+	}
+	
+	@Override
+	public void deleteFile(int bno, String filename) {
+		bdao.deleteFile(bno, filename);
 	}
 }

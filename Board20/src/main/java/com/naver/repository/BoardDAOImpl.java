@@ -68,6 +68,20 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	@Override
+	public void deleteFile(int bno, String filename) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("bno", bno);
+		map.put("filename", filename);
+		
+		session.delete(NS+".deleteFile", map);
+	}
+	
+	@Override
+	public void deleteAllFile(int bno) {
+		session.delete(NS+".deleteAllFile", bno);
+	}
+	
+	@Override
 	public void addAttach(String filename, int bno) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("filename", filename);

@@ -56,13 +56,13 @@
 				<div class="fileDrop"></div>
 			</div>
 			<ul class="uploadedList clearfix">
-				<li class="col-xs-3">
+				<!-- <li class="col-xs-3">
 					<img src="/resources/img/gt.png">
 					<div>
 						<span>gt.png</span>
 						<a class="btn btn-danger btn-xs delbtn" href="#"><span class="glyphicon glyphicon-remove"></span></a>	
 					</div>
-				</li>
+				</li> -->
 			</ul>
 			
 			<div class="form-group">

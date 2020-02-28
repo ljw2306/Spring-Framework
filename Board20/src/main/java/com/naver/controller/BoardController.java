@@ -1,7 +1,9 @@
 package com.naver.controller;
 
+import java.io.File;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -10,10 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.naver.dto.BoardVO;
 import com.naver.dto.PageTO;
 import com.naver.service.BoardService;
+import com.naver.utils.MediaUtils;
 
 @Controller
 @RequestMapping("board")
@@ -21,6 +25,36 @@ public class BoardController {
 	
 	@Inject
 	private BoardService bservice;
+	
+	@Resource(name="uploadPath")
+	private String uploadPath;
+	
+	@RequestMapping(value="deletefile/{bno}", method=RequestMethod.POST)
+	@ResponseBody
+	public String deletefile(@PathVariable("bno")int bno, String filename) {
+		
+		bservice.deleteFile(bno, filename);
+		
+		filename = filename.replace('/', File.separatorChar);
+		String type = filename.substring(filename.lastIndexOf(".")+1);
+		
+		if (MediaUtils.getMediaType(type) != null) {
+			String prefix = filename.substring(0, 12);
+			String suffix = filename.substring(14);
+			File f0 = new File(uploadPath, prefix+suffix);
+			if (f0.exists()) {
+				f0.delete();
+			}
+		}
+		
+		File f = new File(uploadPath, filename);
+		if (f.exists()) {
+			f.delete();
+		}
+		
+		return "삭제되었음";
+	}
+
 	
 	@RequestMapping(value="listpage", method = RequestMethod.GET)
 	public void listpage(PageTO to, Model model) {

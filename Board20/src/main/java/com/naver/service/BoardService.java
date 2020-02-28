@@ -13,4 +13,5 @@ public interface BoardService {
 	public abstract void update(BoardVO vo);
 	public abstract PageTO listpage(PageTO to);
 	public abstract void delete(int bno);
+	public abstract void deleteFile(int bno, String filename);
 }

@@ -1,3 +1,5 @@
+<%@page import="com.fasterxml.jackson.databind.ObjectMapper"%>
+<%@page import="com.naver.dto.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -16,6 +18,9 @@
   <style>
   	.uploadedList {
   		list-style: none;
+  	}
+  	.board_img_icon{
+  		cursor: pointer;
   	}
   </style>
 </head>
@@ -42,7 +47,13 @@
 			<div class="form-group">
 				<label>첨부파일</label>
 				<ul class="uploadedList clearfix">
-					
+					<%
+						BoardVO vo = (BoardVO)request.getAttribute("vo");
+						String[] arr = vo.getFilename();
+						ObjectMapper mapper = new ObjectMapper();
+						String filenames = mapper.writeValueAsString(arr);
+						pageContext.setAttribute("filenames", filenames);
+					%>
 				</ul>
 			</div>
 
@@ -123,6 +134,24 @@
 		var bno = ${vo.bno};
 		
 		$(document).ready(function(){
+			
+			var arr = ${filenames};
+			for(var i=0; i<arr.length;i++){
+				var filename = arr[i];
+				iconAppend(filename, false);
+			}
+			
+			$(".uploadedList").on("click", ".board_img_icon", function(){
+				var filename = $(this).attr("data-url");
+				
+				if(checkImg(filename)) {
+					filename = getImageName(filename);
+				}
+				
+				location.assign("/display?filename="+filename);
+			});
+			
+			
 			$("#modal_update").click(function(){
 				var rno = $("#modal_rno").text();
 				var replytext = $("#modal_replytext").val();

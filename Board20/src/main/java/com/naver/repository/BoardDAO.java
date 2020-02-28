@@ -17,4 +17,6 @@ public interface BoardDAO {
 	public abstract void delete(int bno);
 	public abstract void addAttach(String filename, int bno);
 	public abstract List<String> getAttach(int bno);
+	public abstract void deleteFile(int bno, String filename);
+	public abstract void deleteAllFile(int bno);
 }

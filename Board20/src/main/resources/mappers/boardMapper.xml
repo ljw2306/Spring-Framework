@@ -4,6 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.naver.board">
 
+	<delete id="deleteAllFile">
+		delete from attach where bno = #{bno}
+	</delete>
+
+	<delete id="deleteFile">
+		delete from attach where bno = #{bno} and filename = #{filename}
+	</delete>
+
 	<select id="getAttach" resultType="string">
 		select filename from attach where bno = #{bno}
 	</select>
